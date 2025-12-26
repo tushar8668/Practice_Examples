@@ -1,65 +1,3 @@
-# Handling outliers.
-
-def remove_outliers(dataset, cols):
-    """
-    Remove outliers from a DataFrame using the interquartile range (IQR) method.
-
-    Parameters:
-    data (pandas DataFrame): The DataFrame to remove outliers from.
-    cols (list): A list of columns to analyze for outliers.
-
-    Returns:
-    pandas DataFrame: The DataFrame with outliers removed.
-    """
-    # Calculate the IQR for each column
-    Q1 = dataset[cols].quantile(0.25)
-    Q3 = dataset[cols].quantile(0.75)
-    IQR = Q3 - Q1
-
-    # Determine the lower and upper bounds for outliers
-    lower_bound = Q1 - 1.5 * IQR
-    upper_bound = Q3 + 1.5 * IQR
-
-    # Remove the outliers from the dataset
-    dataset = dataset[~((dataset[cols] < lower_bound) | (dataset[cols] > upper_bound)).any(axis=1)]
-
-    return dataset
-
-
-
-# Create a Vehicle class with instance attributes max_speed and mileage. Then, create an object of this class and print its attributes
-class Vehicle:
-    def __init__(self, max_speed, mileage):
-        self.max_speed = max_speed
-        self.mileage = mileage
-
-    def capacity(self, seats):
-        return f"The capacity of given car is {seats} sit."
-
-
-v1 = Vehicle(30,12)
-
-
-# Python program to create a class representing a Circle. Include methods to calculate its area and perimeter. 
-
-class Circle:
-    def __init__(self, radius):
-        self.radius = radius
-
-    def calculate_area(self):
-        return f"Area of Circle is {3.14*(self.radius**2)}."
-    
-    def calculate_perimeter(self):
-        return f"Perimeter of Circle is {3.14*self.radius*2}"
-    
-circle1 = Circle(5)
-print(circle1.calculate_area())
-print(circle1.calculate_perimeter())
-
-
-# Python program to create a person class. Include attributes like name, country and date of birth. Implement a method to determine the person's age. 
-from datetime import date
-
 class Person:
     def __init__(self, name, country, date_of_birth):
         self.name = name
@@ -171,5 +109,3 @@ print(r1.area())
 print(r1.perimeter())
 print("--------------------------------------")
               
-
-           
