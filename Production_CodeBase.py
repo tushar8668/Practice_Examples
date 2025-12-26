@@ -57,7 +57,7 @@ print(circle1.calculate_area())
 print(circle1.calculate_perimeter())
 
 
-Python program to create a person class. Include attributes like name, country and date of birth. Implement a method to determine the person's age. 
+# Python program to create a person class. Include attributes like name, country and date of birth. Implement a method to determine the person's age. 
 from datetime import date
 
 class Person:
@@ -102,4 +102,74 @@ print(c1.multiplication())
 print(c1.division())
 
 # Python program to create a class that represents a shape. Include methods to calculate its area and perimeter. Implement subclasses for different shapes like circle, triangle, and square.  
-   
+class Shape:
+    def __init__(self):
+        pass
+
+    def area(self):
+        pass
+
+    def perimeter(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return f"Area of Circle is {3.14*(self.radius**2)}"
+
+    def perimeter(self):
+        return f"Perimeter of Circle is {3.14*self.radius*2}"
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return f"Area of rectangle is {self.length*self.width}."
+
+    def perimeter(self):
+        return f"Perimter of rectangle is {2*(self.length+self.width)}."
+
+class Triangle(Shape):
+    def __init__(self, base, height, side1, side2, side3):
+        self.base = base
+        self.height = height
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+
+    def area(self):
+        return f"Area of Triangle is {0.5*self.base*self.height}."
+
+    def perimeter(self):
+        return f"Perimter of Triangle is {self.side1+self.side2+self.side3}."
+
+print("--------------------------------------")
+# Area and Perimter of Circle
+s1 = Circle(7)
+print("Area and Perimter of Circle")
+print(s1.area())
+print(s1.perimeter())
+print("--------------------------------------")
+
+# Area and Perimeter of Recatangle
+r1 = Rectangle(3,5)
+print("--------------------------------------")
+print("Area and Perimter of Rectangle")
+print(r1.area())
+print(r1.perimeter())
+print("--------------------------------------")
+
+# Area and Perimeter of =Triangle
+r1 = Triangle(3,5,2,2,2)
+print("--------------------------------------")
+print("Area and Perimter of Triangle")
+print(r1.area())
+print(r1.perimeter())
+print("--------------------------------------")
+              
+
+           
